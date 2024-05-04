@@ -17,12 +17,17 @@ const Home = () => {
           {/* Use Link for button */}
           <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>Touch Us
           </a>
-
         </div>
         <div className={styles.imageContainer}>
           <img src="image/display.webp" alt="Clothing" />
         </div>
       </main>
+      <footer className={styles.footer}>
+        <div className={styles.footerDisclaimer}>
+          <p>&copy; 2024 LSW. All rights reserved.</p>
+          <p>Designed by YourName</p>
+        </div>
+      </footer>
     </div>
   );
 };

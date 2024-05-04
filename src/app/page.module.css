@@ -3,10 +3,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh + 2rem); /* Increase min-height to include extra space at the bottom */
   background-color: #121212;
   color: #f0f0f0;
+  border-bottom: 1px solid #121212; /* Add bottom border */
+  margin-bottom: 40rem;
+  flex-grow: 1; /* Main content will grow to fill remaining space */
 }
+
+
 /*
 .navbar {
   background-color: #212121;
@@ -41,11 +46,13 @@
 
 .main {
   display: flex;
+  background-color: #121212;
   justify-content: space-around;
   align-items: center;
   flex-grow: 1;
   padding: 2rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  
 }
 
 .textContainer {
@@ -133,4 +140,27 @@
   to {
     opacity: 1;
   }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #121212; /* Footer background color */
+  color: #ffffff; /* Text color */
+  padding: 2rem; /* Padding around footer content */
+  text-align: center; /* Center-align footer content */
+  border-top: 1px solid #313131; /* Add top border */
+  flex-shrink: 0; /* Footer will not shrink and will stay at the bottom */
+}
+
+
+.footer-content {
+  max-width: 1200px; /* Limit width of footer content */
+  margin: 0 auto; /* Center footer content */
+}
+
+.footer-content p {
+  margin: 0; /* Remove default margins from paragraphs */
 }
