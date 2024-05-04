@@ -13,7 +13,7 @@ const Home = () => {
       <main className={styles.main}>
         <div className={styles.textContainer}>
           <h1>Don't miss the vibe</h1>
-          <p>you think it's lorem ipsum? pee-poop bro it's string that contains timeless fashion that empowers your confidence.</p>
+          <p>you think it's lorem ipsum? pee-poop bro, the string telling you to discover timeless fashion that empowers your confidence.</p>
           {/* Use Link for button */}
           <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>Touch Us
           </a>
