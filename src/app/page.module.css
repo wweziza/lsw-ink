@@ -131,7 +131,7 @@
 }
 @media only screen and (max-width: 768px) {
   .container{
-    margin-top: -3rem;
+    margin-top: 3rem;
   }
   .navbar {
     padding: 0.5rem; /* Decrease padding for smaller screens */
