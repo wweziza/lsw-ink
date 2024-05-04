@@ -7,8 +7,8 @@
   background-color: #121212;
   color: #f0f0f0;
   border-bottom: 1px solid #121212; /* Add bottom border */
-  margin-bottom: 40rem;
-  flex-grow: 1; /* Main content will grow to fill remaining space */
+  margin-bottom: 20rem;
+
 }
 
 
@@ -52,7 +52,6 @@
   flex-grow: 1;
   padding: 2rem;
   margin-top: 2rem;
-  
 }
 
 .textContainer {
@@ -100,6 +99,36 @@
 
 /* Media queries for mobile devices */
 
+
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer {
+  background-color: #121212; /* Footer background color */
+  color: #ffffff; /* Text color */
+  padding: 2rem; /* Padding around footer content */
+  text-align: center; /* Center-align footer content */
+  border-top: 1px solid #313131; /* Add top border */
+  font-size: 0.8rem; /* Mengatur ukuran teks footer menjadi lebih kecil */
+}
+
+
+.footer-content {
+  max-width: 1200px; /* Limit width of footer content */
+  margin: 0 auto; /* Center footer content */
+}
+
+.footer-content p {
+  margin: 0; /* Remove default margins from paragraphs */
+}
 @media only screen and (max-width: 768px) {
   .navbar {
     padding: 0.5rem; /* Decrease padding for smaller screens */
@@ -130,37 +159,4 @@
     margin-top: 2rem; /* Increase margin-top for better spacing on smaller screens */
     animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
   }
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #121212; /* Footer background color */
-  color: #ffffff; /* Text color */
-  padding: 2rem; /* Padding around footer content */
-  text-align: center; /* Center-align footer content */
-  border-top: 1px solid #313131; /* Add top border */
-  flex-shrink: 0; /* Footer will not shrink and will stay at the bottom */
-}
-
-
-.footer-content {
-  max-width: 1200px; /* Limit width of footer content */
-  margin: 0 auto; /* Center footer content */
-}
-
-.footer-content p {
-  margin: 0; /* Remove default margins from paragraphs */
 }
