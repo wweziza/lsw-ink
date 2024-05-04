@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styles from './page.module.css';
 
 const Home = () => {
@@ -6,17 +7,17 @@ const Home = () => {
     <div className={styles.container}>
       <nav className={styles.navbar}>
         <ul className={styles.navLinks}>
-          <li>Home</li>
-          <li>Shop</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>LSW.</li>
         </ul>
       </nav>
       <main className={styles.main}>
         <div className={styles.textContainer}>
           <h1>Don't miss the vibe</h1>
-          <p>Discover timeless fashion that empowers your confidence.</p>
-          <button className={styles.shopBtn}>Shop Now</button>
+          <p>you think it's lorem ipsum? pee-poop bro it's string that contains timeless fashion that empowers your confidence.</p>
+          {/* Use Link for button */}
+          <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>Touch Us
+          </a>
+
         </div>
         <div className={styles.imageContainer}>
           <img src="image/display.webp" alt="Clothing" />

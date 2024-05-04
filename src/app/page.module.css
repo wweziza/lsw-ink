@@ -42,6 +42,8 @@
 
 .textContainer {
   max-width: 500px;
+  opacity: -0; /* Initially set opacity to 0 */
+  animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
 }
 
 .textContainer h1 {
@@ -71,6 +73,7 @@
 
 .imageContainer {
   max-width: 500px;
+  animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
 }
 
 .imageContainer img {
@@ -87,10 +90,6 @@
     padding: 0.5rem; /* Decrease padding for smaller screens */
   }
 
-  .navLinks {
-    justify-content: center; /* Center navbar links on smaller screens */
-  }
-
   .main {
     flex-direction: column; /* Change main layout to column on smaller screens */
     align-items: center;
@@ -100,6 +99,7 @@
   .textContainer {
     max-width: 100%; /* Adjust text container width for smaller screens */
     text-align: center; /* Center text on smaller screens */
+    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
   }
 
   .textContainer h1 {
@@ -113,5 +113,16 @@
   .imageContainer {
     max-width: 100%; /* Adjust image container width for smaller screens */
     margin-top: 2rem; /* Increase margin-top for better spacing on smaller screens */
+    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
