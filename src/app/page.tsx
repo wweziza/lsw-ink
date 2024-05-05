@@ -57,13 +57,12 @@ const Home = () => {
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
        <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
-        <ul className={styles.navLinks}>
-          <li>LSW {randomLetters}</li>
-          <li>
-            <button onClick={toggleTheme}>
-              {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            </button>
-          </li>
+       <ul className={styles.navLinks}>
+        <li>
+          <button onClick={toggleTheme} className={styles.transparentButton}>
+            LSW {randomLetters}
+          </button>
+        </li>
         </ul>
       </nav>
       <main className={styles.main}>
