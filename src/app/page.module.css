@@ -217,30 +217,45 @@
 }
 /*secondPage  section*/
 .newContentSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 2rem 0;
+  padding: 4rem 2rem;
   font-size: 1.2rem;
   color: #555;
+  min-height: 70vh;
+  margin: auto auto auto;
+ 
+}
+.semiFooter{
+  color: #555;
+  min-height: 0.1vh;
+  text-align:end;
+  padding: 1rem 3rem;
+  font-size: 0.7rem;
+  margin: auto auto auto;
+}
+.newPageContent {
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 4s ease forwards;
+  margin: auto auto 6rem;
   
 }
 
 .newPageContent h2 {
   margin-bottom: 2rem;
 }
-
-.newPageContent {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 4s ease forwards;
-}
-
 .newPageContent p {
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 
 .newPageContent .shopBtn {

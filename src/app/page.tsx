@@ -2,6 +2,7 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
+
 import { useTheme } from './functions/useTheme';
 import { useRandomLetters } from './functions/useRandomLetters';
 import { useNavbarOpacity } from './functions/useNavbarOpacity';
@@ -69,6 +70,9 @@ const Home = () => {
           <SecondPage />
         </div>
       </Suspense>
+      <div className={styles.semiFooter}>
+        <p>Embrace the essence of timeless style with LSW.</p>
+      </div>
       <footer className={styles.footer}>
         <div className={styles.footerDisclaimer}>
           <p>&copy; 2024 LSW. All rights reserved.</p>
