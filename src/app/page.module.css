@@ -1,31 +1,19 @@
-/* Default styles */
+/* page.module.css */
 
 .container {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh + 2rem); /* Increase min-height to include extra space at the bottom */
-  background-color: #121212;
-  color: #f0f0f0;
-  border-bottom: 1px solid #121212; /* Add bottom border */
-  margin-bottom: 7rem;
-  margin-top: -5rem;
+  min-height: calc(100vh + 2rem);
 }
 
+.navbar {
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
 
-/*
-.navbar {
-  background-color: #212121;
-  padding: 1rem;
-}
-*/
-.navbar {
-  background-color: transparent; /* Set navbar background to transparent */
-  padding: 1rem;
-  position: fixed; /* Make navbar position fixed */
-  width: 100%; /* Set navbar width to 100% */
-  top: 0; /* Position navbar at the top of the viewport */
-  z-index: 1000; /* Set a high z-index to ensure navbar stays on top of other content */
-}
 .navLinks {
   display: flex;
   justify-content: flex-start;
@@ -46,7 +34,6 @@
 
 .main {
   display: flex;
-  background-color: #121212;
   justify-content: space-around;
   align-items: center;
   flex-grow: 1;
@@ -98,8 +85,7 @@
 }
 
 /* Media queries for mobile devices */
-
-
+/* ... Your existing media queries */
 
 /* Fade-in animation */
 @keyframes fadeIn {
@@ -112,54 +98,52 @@
 }
 
 .footer {
-  background-color: #121212; /* Footer background color */
-  color: #ffffff; /* Text color */
-  padding: 2rem; /* Padding around footer content */
-  text-align: center; /* Center-align footer content */
-  border-top: 1px solid #313131; /* Add top border */
-  font-size: 0.8rem; /* Mengatur ukuran teks footer menjadi lebih kecil */
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #313131;
+  font-size: 0.8rem;
+  margin-top: auto;
 }
 
-
-.footer-content {
-  max-width: 1200px; /* Limit width of footer content */
-  margin: 0 auto; /* Center footer content */
+/* Light mode styles */
+.light {
+  background-color: #f0f0f0;
+  color: #333;
 }
 
-.footer-content p {
-  margin: 0; /* Remove default margins from paragraphs */
+/* Dark mode styles */
+.dark {
+  background-color: #121212;
+  color: #f0f0f0;
 }
-@media only screen and (max-width: 768px) {
-  .container{
-    margin-top: 3rem;
-  }
-  .navbar {
-    padding: 0.5rem; /* Decrease padding for smaller screens */
-  }
 
-  .main {
-    flex-direction: column; /* Change main layout to column on smaller screens */
-    align-items: center;
-    padding: 1rem;
-  }
+.light .navbar {
+  background-color: #f8f9fa;
+}
 
-  .textContainer {
-    max-width: 100%; /* Adjust text container width for smaller screens */
-    text-align: center; /* Center text on smaller screens */
-    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
-  }
+.light .shopBtn {
+  background-color: #121212;
+  color: #f8f9fa;
+}
 
-  .textContainer h1 {
-    font-size: 2rem; /* Decrease font size for smaller screens */
-  }
+.light .shopBtn:hover {
+  background-color: #666;
+}
 
-  .textContainer p {
-    font-size: 1rem; /* Decrease font size for smaller screens */
-  }
+.light .footer {
+  background-color: #f0f0f0;
+  color: #333;
+}
 
-  .imageContainer {
-    max-width: 100%; /* Adjust image container width for smaller screens */
-    margin-top: 2rem; /* Increase margin-top for better spacing on smaller screens */
-    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
-  }
+.light .footer-content p {
+  color: #666;
+}
+
+.dark .footer {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+.dark .footer-content p {
+  color: #666;
 }
