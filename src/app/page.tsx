@@ -6,7 +6,7 @@ import styles from './page.module.css';
 const Home = () => {
   const [randomLetters, setRandomLetters] = useState('▶');
   useEffect(() => {
-    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '❤️', '(╥﹏╥)', '•⩊•', '•ᴗ•'];
+    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '❤️', '(╥﹏╥)', '•⩊•', '•ᴗ•','(•ᴖ•｡)','( ˘͈ ᵕ ˘͈♡)','"૮₍ ˶•⤙•˶ ₎ა'];
   
     const interval = setInterval(() => {
       const randomChars = Array.from({ length: 1 }, () =>
