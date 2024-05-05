@@ -28,11 +28,14 @@ const Home = () => {
 
   useEffect(() => {
     // Apply dark mode styles to the body when isDarkMode is true
+    const body = document.querySelector('body');
     if (isDarkMode) {
-      document.body.classList.add(styles.darkBody);
+      body.style.backgroundColor = '#121212';
+      body.style.color = '#f0f0f0';
     } else {
       // Remove dark mode styles from the body when isDarkMode is false
-      document.body.classList.remove(styles.darkBody);
+      body.style.backgroundColor = '#f0f0f0';
+      body.style.color = '#121212';
     }
   }, [isDarkMode]);
 
