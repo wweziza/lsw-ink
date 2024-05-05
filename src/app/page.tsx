@@ -4,55 +4,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { useTheme } from './functions/useTheme';
+import { useRandomLetters } from './functions/useRandomLetters';
+import { useNavbarOpacity } from './functions/useNavbarOpacity';
 
 const Home = () => {
-  const [randomLetters, setRandomLetters] = useState('𓅰');
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [isNavbarOpaque, setIsNavbarOpaque] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  useEffect(() => {
-    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '♡', '(╥﹏╥)', '•⩊•', '•ᴗ•','(•ᴖ•｡)','( ˘͈ ᵕ ˘͈♡)','"૮₍ ˶•⤙•˶ ₎ა', '( • ᴖ • ｡)'];
-
-    const interval = setInterval(() => {
-      const randomChars = Array.from({ length: 1 }, () =>
-        characters[Math.floor(Math.random() * characters.length)]
-      ).join('');
-      setRandomLetters(randomChars);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    // Apply dark mode styles to the body when isDarkMode is true
-    const body = document.querySelector('body');
-    if (isDarkMode) {
-      body.style.backgroundColor = '#121212';
-      body.style.color = '#f0f0f0';
-    } else {
-      // Remove dark mode styles from the body when isDarkMode is false
-      body.style.backgroundColor = '#f0f0f0';
-      body.style.color = '#121212';
-    }
-  }, [isDarkMode]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsNavbarOpaque(true);
-      } else {
-        setIsNavbarOpaque(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { isDarkMode, toggleTheme } = useTheme();
+  const { randomLetters } = useRandomLetters();
+  const { isNavbarOpaque } = useNavbarOpacity();
 
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
