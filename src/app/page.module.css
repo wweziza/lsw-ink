@@ -113,6 +113,11 @@
     margin-top: 2rem;
     animation: fadeIn 4s ease forwards;
   }
+  .secondPageSection {
+    opacity: 1;
+    visibility: visible;
+  }
+
 }
 .fadeIn {
   animation: fadeIn 1s ease-in-out forwards;
@@ -210,7 +215,7 @@
 .transparentButton:hover {
   color: #a0a0a0;
 }
-
+/*secondPage  section*/
 .newContentSection {
   text-align: center;
   padding: 2rem 0;
@@ -275,4 +280,10 @@
   background-color: #171717;
   padding: 4rem 2rem;
   text-align: center;
+}
+
+.secondPageHidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }

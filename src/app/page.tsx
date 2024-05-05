@@ -1,11 +1,13 @@
 'use client';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { useTheme } from './functions/useTheme';
 import { useRandomLetters } from './functions/useRandomLetters';
 import { useNavbarOpacity } from './functions/useNavbarOpacity';
 import { useIntersectionObserver } from './functions/useIntersectionObserver';
+
+const SecondPage = lazy(() => import('./contents/secondPage'));
 
 const Home = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -14,7 +16,7 @@ const Home = () => {
   const [newPageSectionRef, isNewPageSectionIntersecting] = useIntersectionObserver({
     root: null,
     rootMargin: '0px',
-    threshold: 0.1, // Adjust this value to control when the fade-in animation should start
+    threshold: 0.1,
   });
 
   return (
@@ -44,20 +46,16 @@ const Home = () => {
           <img src={isDarkMode ? 'image/display.webp' : 'image/displayWhite.webp'} alt="Clothing" />
         </div>
       </main>
-      <div
-        className={`${styles.newPageSection} ${isNewPageSectionIntersecting ? styles.fadeIn : ''}`}
-        ref={newPageSectionRef}
-      >
-        <div className={styles.newPageContent}>
-          <h2>Explore Our Latest Collection</h2>
-          <p>
-            Indulge in our newest line of clothing, where style meets comfort. From casual weekend wear to sleek office
-            attire, we've got you covered. Discover the perfect pieces to elevate your wardrobe and make a statement
-            wherever you go.
-          </p>
-          <button className={styles.shopBtn}>Shop Now</button>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div
+          ref={newPageSectionRef}
+          className={`${styles.newPageSection} ${
+            isNewPageSectionIntersecting || window.innerWidth >= 768 ? '' : styles.secondPageHidden
+          }`}
+        >
+          <SecondPage />
         </div>
-      </div>
+      </Suspense>
       <footer className={styles.footer}>
         <div className={styles.footerDisclaimer}>
           <p>&copy; 2024 LSW. All rights reserved.</p>
