@@ -86,7 +86,40 @@
 
 /* Media queries for mobile devices */
 /* ... Your existing media queries */
+@media only screen and (max-width: 768px) {
+  .container{
+    margin-top: 3rem;
+  }
+  .navbar {
+    padding: 0.5rem; /* Decrease padding for smaller screens */
+  }
 
+  .main {
+    flex-direction: column; /* Change main layout to column on smaller screens */
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .textContainer {
+    max-width: 100%; /* Adjust text container width for smaller screens */
+    text-align: center; /* Center text on smaller screens */
+    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+  }
+
+  .textContainer h1 {
+    font-size: 2rem; /* Decrease font size for smaller screens */
+  }
+
+  .textContainer p {
+    font-size: 1rem; /* Decrease font size for smaller screens */
+  }
+
+  .imageContainer {
+    max-width: 100%; /* Adjust image container width for smaller screens */
+    margin-top: 2rem; /* Increase margin-top for better spacing on smaller screens */
+    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+  }
+}
 /* Fade-in animation */
 @keyframes fadeIn {
   from {
