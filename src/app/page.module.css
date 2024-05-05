@@ -285,5 +285,5 @@
 .hidden {
   opacity: 0;
   transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 4s ease, transform 4s ease;
 }
