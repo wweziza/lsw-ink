@@ -187,10 +187,10 @@
   color: #666;
 }
 .dark .opaque {
-  background-color: #1c1b1b;
+  background-color: #121212;
 }
 .light .opaque {
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
 }
 .transparentButton {
   background-color: transparent;
