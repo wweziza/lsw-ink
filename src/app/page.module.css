@@ -172,9 +172,13 @@
   color: #666;
 }
 
-.light body {
-  --body-background-color: #f0f0f0; /* Light mode background color */
+/* page.module.css */
+
+.darkBody {
+  color: #f0f0f0; /* Dark mode text color */
+  background-color: #121212; /* Dark mode background color */
 }
+
 
 .dark .footer {
   background-color: #121212;

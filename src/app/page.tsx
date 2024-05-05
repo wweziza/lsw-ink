@@ -26,6 +26,16 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    // Apply dark mode styles to the body when isDarkMode is true
+    if (isDarkMode) {
+      document.body.classList.add(styles.darkBody);
+    } else {
+      // Remove dark mode styles from the body when isDarkMode is false
+      document.body.classList.remove(styles.darkBody);
+    }
+  }, [isDarkMode]);
+
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
       <nav className={styles.navbar}>
@@ -46,12 +56,14 @@ const Home = () => {
           <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>Touch Us</a>
         </div>
         <div className={styles.imageContainer}>
-          <img src="image/displayWhite.webp" alt="Clothing" />
+          <img src="image/display.webp" alt="Clothing" />
         </div>
       </main>
       <footer className={styles.footer}>
+        <div className={styles.footerDisclaimer}>
           <p>&copy; 2024 LSW. All rights reserved.</p>
           <p>Designed by weziza</p>
+        </div>
       </footer>
     </div>
   );
