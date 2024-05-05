@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 const Home = () => {
-  const [randomLetters, setRandomLetters] = useState('▶');
+  const [randomLetters, setRandomLetters] = useState('𓅰');
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isNavbarOpaque, setIsNavbarOpaque] = useState(false);
 
@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '❤️', '(╥﹏╥)', '•⩊•', '•ᴗ•','(•ᴖ•｡)','( ˘͈ ᵕ ˘͈♡)','"૮₍ ˶•⤙•˶ ₎ა'];
+    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '♡', '(╥﹏╥)', '•⩊•', '•ᴗ•','(•ᴖ•｡)','( ˘͈ ᵕ ˘͈♡)','"૮₍ ˶•⤙•˶ ₎ა', '( • ᴖ • ｡)'];
 
     const interval = setInterval(() => {
       const randomChars = Array.from({ length: 1 }, () =>
