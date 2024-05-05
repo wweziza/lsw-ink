@@ -1,3 +1,5 @@
+/* rewrite the observer / delete it*/
+
 'use client';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
