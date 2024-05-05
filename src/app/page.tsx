@@ -8,7 +8,8 @@ import styles from './page.module.css';
 const Home = () => {
   const [randomLetters, setRandomLetters] = useState('▶');
   const [isDarkMode, setIsDarkMode] = useState(true);
-  
+  const [isNavbarOpaque, setIsNavbarOpaque] = useState(false);
+
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
@@ -39,9 +40,23 @@ const Home = () => {
     }
   }, [isDarkMode]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsNavbarOpaque(true);
+      } else {
+        setIsNavbarOpaque(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
-      <nav className={styles.navbar}>
+       <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
         <ul className={styles.navLinks}>
           <li>LSW {randomLetters}</li>
           <li>
