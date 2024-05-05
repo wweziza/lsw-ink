@@ -1,5 +1,5 @@
 'use client';
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 import { useTheme } from './functions/useTheme';
@@ -18,7 +18,20 @@ const Home = () => {
     rootMargin: '0px',
     threshold: 0.1,
   });
+  const [isScreenWidthSmall, setIsScreenWidthSmall] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsScreenWidthSmall(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
       <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
@@ -50,7 +63,7 @@ const Home = () => {
         <div
           ref={newPageSectionRef}
           className={`${styles.newPageSection} ${
-            isNewPageSectionIntersecting || window.innerWidth >= 768 ? '' : styles.secondPageHidden
+            isNewPageSectionIntersecting || !isScreenWidthSmall ? '' : styles.secondPageHidden
           }`}
         >
           <SecondPage />
