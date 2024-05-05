@@ -46,7 +46,7 @@ const Home = () => {
           <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>Touch Us</a>
         </div>
         <div className={styles.imageContainer}>
-          <img src="image/display.webp" alt="Clothing" />
+          <img src="image/displayWhite.webp" alt="Clothing" />
         </div>
       </main>
       <footer className={styles.footer}>
