@@ -1,14 +1,28 @@
-import React from 'react';
+'use client'; // Add this line at the top of the file
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 
 const Home = () => {
+  const [randomLetters, setRandomLetters] = useState('LSW');
+  useEffect(() => {
+    const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '❤️', '(╥﹏╥)', '•⩊•', '•ᴗ•'];
+  
+    const interval = setInterval(() => {
+      const randomChars = Array.from({ length: 1 }, () =>
+        characters[Math.floor(Math.random() * characters.length)]
+      ).join('');
+      setRandomLetters(randomChars);
+    }, 1000);
+  
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       <div className={styles.container}>
         <nav className={styles.navbar}>
           <ul className={styles.navLinks}>
-            <li>LSW.</li>
+            <li>LSW {randomLetters}</li>
           </ul>
         </nav>
         <main className={styles.main}>
