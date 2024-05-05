@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './page.module.css';
 
 const Home = () => {
-  const [randomLetters, setRandomLetters] = useState('LSW');
+  const [randomLetters, setRandomLetters] = useState('▶');
   useEffect(() => {
     const characters = ['ᓚ₍ ^. .^₎', '(¬_¬")', '❤️', '(╥﹏╥)', '•⩊•', '•ᴗ•'];
   
