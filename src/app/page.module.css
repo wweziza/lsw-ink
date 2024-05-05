@@ -12,9 +12,8 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease; /* Add transition property */
+  transition: background-color 0.3s ease;
 }
-
 
 .navLinks {
   display: flex;
@@ -45,8 +44,8 @@
 
 .textContainer {
   max-width: 500px;
-  opacity: -0; /* Initially set opacity to 0 */
-  animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+  opacity: 0;
+  animation: fadeIn 4s ease forwards;
 }
 
 .textContainer h1 {
@@ -60,8 +59,6 @@
 }
 
 .shopBtn {
-  background-color: #a0a0a0;
-  color: #212121;
   border: none;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
@@ -70,13 +67,9 @@
   transition: background-color 0.3s ease;
 }
 
-.shopBtn:hover {
-  background-color: #f0f0f0;
-}
-
 .imageContainer {
   max-width: 500px;
-  animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+  animation: fadeIn 4s ease forwards;
 }
 
 .imageContainer img {
@@ -87,42 +80,43 @@
 }
 
 /* Media queries for mobile devices */
-/* ... Your existing media queries */
 @media only screen and (max-width: 768px) {
-  .container{
+  .container {
     margin-top: 3rem;
   }
   .navbar {
-    padding: 0.5rem; /* Decrease padding for smaller screens */
+    padding: 0.5rem;
   }
 
   .main {
-    flex-direction: column; /* Change main layout to column on smaller screens */
+    flex-direction: column;
     align-items: center;
     padding: 1rem;
   }
 
   .textContainer {
-    max-width: 100%; /* Adjust text container width for smaller screens */
-    text-align: center; /* Center text on smaller screens */
-    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+    max-width: 100%;
+    text-align: center;
+    animation: fadeIn 4s ease forwards;
   }
 
   .textContainer h1 {
-    font-size: 2rem; /* Decrease font size for smaller screens */
+    font-size: 2rem;
   }
 
   .textContainer p {
-    font-size: 1rem; /* Decrease font size for smaller screens */
+    font-size: 1rem;
   }
 
   .imageContainer {
-    max-width: 100%; /* Adjust image container width for smaller screens */
-    margin-top: 2rem; /* Increase margin-top for better spacing on smaller screens */
-    animation: fadeIn 4s ease forwards; /* Apply fade-in animation */
+    max-width: 100%;
+    margin-top: 2rem;
+    animation: fadeIn 4s ease forwards;
   }
 }
-/* Fade-in animation */
+.fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -146,14 +140,6 @@
   color: #333;
 }
 
-/* Dark mode styles */
-.dark {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-.dark .navbar {
-  background-color: transparent;
-}
 .light .navbar {
   background-color: transparent;
 }
@@ -176,7 +162,28 @@
   color: #666;
 }
 
+.light .opaque {
+  background-color: #f0f0f0;
+}
 
+/* Dark mode styles */
+.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark .navbar {
+  background-color: transparent;
+}
+
+.dark .shopBtn {
+  background-color: #a0a0a0;
+  color: #212121;
+}
+
+.dark .shopBtn:hover {
+  background-color: #f0f0f0;
+}
 
 .dark .footer {
   background-color: #121212;
@@ -186,12 +193,11 @@
 .dark .footer-content p {
   color: #666;
 }
+
 .dark .opaque {
   background-color: #121212;
 }
-.light .opaque {
-  background-color: #f0f0f0;
-}
+
 .transparentButton {
   background-color: transparent;
   border: none;
@@ -202,5 +208,71 @@
 }
 
 .transparentButton:hover {
-  color: #a0a0a0; /* Change the color on hover as desired */
+  color: #a0a0a0;
+}
+
+.newContentSection {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.2rem;
+  color: #555;
+  
+}
+
+.newPageContent h2 {
+  margin-bottom: 2rem;
+}
+
+.newPageContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 4s ease forwards;
+}
+
+.newPageContent p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.newPageContent .shopBtn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.light .newPageContent .shopBtn {
+  background-color: #333;
+  color: #fff;
+}
+
+.light .newPageContent .shopBtn:hover {
+  background-color: #555;
+}
+
+.dark .newPageContent .shopBtn {
+  background-color: #a0a0a0;
+  color: #212121;
+}
+.dark .newPageContent {
+  background-color: #171717;
+}
+.dark .newPageContent .shopBtn:hover {
+  background-color: #f0f0f0;
+}
+.light .newPageSection {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.dark .newPageSection {
+  background-color: #171717;
+  padding: 4rem 2rem;
+  text-align: center;
 }
