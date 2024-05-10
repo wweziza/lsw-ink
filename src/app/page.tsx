@@ -2,9 +2,13 @@
 import React, { lazy, Suspense, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { useTheme } from './functions/useTheme';
-import { useRandomLetters } from './functions/useRandomLetters';
-import { useNavbarOpacity } from './functions/useNavbarOpacity';
+import { useTheme } from './components/functions/useTheme';
+import { useRandomLetters } from './components/functions/useRandomLetters';
+import { useNavbarOpacity } from './components/functions/useNavbarOpacity';
+
+
+import Footer from './components/layouts/footer';
+import Navbar from './components/layouts/navbar';
 
 const SecondPage = lazy(() => import('./contents/secondPage'));
 
@@ -24,36 +28,7 @@ const Home = () => {
 
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
-      <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
-        <div className={styles.navbarInner}>
-          <ul className={styles.navLinks}>
-            <li>
-              <button onClick={toggleTheme} className={styles.transparentButton}>
-                LSW {randomLetters}
-              </button>
-            </li>
-          </ul>
-          <div className={styles.sidebarToggle} onClick={toggleSidebar}>
-            <span>{isSidebarOpen ? '✕' : '☰'}</span>
-          </div>
-        </div>
-        <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
-          <div className={styles.sidebarHeader}>
-            <button className={styles.sidebarCloseButton} onClick={closeSidebar}>
-              ✕
-            </button>
-          </div>
-          <Link href="/" className={styles.sidebarLink}>
-            Home
-          </Link>
-          <Link href="/collections" className={styles.sidebarLink}>
-            Collections
-          </Link>
-          <Link href="/login" className={styles.sidebarLink}>
-            Login
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
       <main className={styles.main}>
         <div className={styles.textContainer}>
           <h1>Don't miss the vibe</h1>
@@ -72,12 +47,7 @@ const Home = () => {
       <div className={`${styles.newPageSection}`}>
         <SecondPage />
       </div>
-      <footer className={styles.footer}>
-        <div className={styles.footerDisclaimer}>
-          <p>&copy; 2024 LSW. All rights reserved.</p>
-          <p>Embrace the essence of timeless style with LSW</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
