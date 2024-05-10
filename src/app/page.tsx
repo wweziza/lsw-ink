@@ -72,13 +72,11 @@ const Home = () => {
           <SecondPage />
         </div>
       </Suspense>
-      <div className={styles.semiFooter}>
-        <p>Embrace the essence of timeless style with LSW.</p>
-      </div>
+
       <footer className={styles.footer}>
         <div className={styles.footerDisclaimer}>
           <p>&copy; 2024 LSW. All rights reserved.</p>
-          <p>Designed by weziza</p>
+          <p>Embrace the essence of timeless style with LSW</p>
         </div>
       </footer>
     </div>
@@ -87,6 +85,6 @@ const Home = () => {
 
 export default Home;
 /*
-      <div className={styles.newContentSection}>
+            <div className={styles.semiFooter}>
         <p>Embrace the essence of timeless style with LSW.</p>
       </div>*/

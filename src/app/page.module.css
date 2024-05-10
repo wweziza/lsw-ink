@@ -130,13 +130,21 @@
     opacity: 1;
   }
 }
-
+/*
 .footer {
   padding: 2rem;
   text-align: center;
   border-top: 1px solid #313131;
   font-size: 0.8rem;
   margin-top: auto;
+}*/
+.footer {
+  color: #555;
+  min-height: 0.1vh;
+  text-align:center;
+  padding: 1rem 3rem;
+  font-size: 0.7rem;
+  margin: auto auto auto;
 }
 
 /* Light mode styles */
