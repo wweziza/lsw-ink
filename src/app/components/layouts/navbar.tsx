@@ -4,9 +4,13 @@ import styles from '../../page.module.css';
 import { useTheme } from '../functions/useTheme';
 import { useRandomLetters } from '../functions/useRandomLetters';
 import { useNavbarOpacity } from '../functions/useNavbarOpacity';
-
-const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+interface NavbarProps {
+    toggleTheme: () => void; // Define the type of toggleTheme
+    // Add other props here if needed
+  }
+  
+  const Navbar: React.FC<NavbarProps> = ({ toggleTheme }) => {
+  const { isDarkMode } = useTheme();
   const { randomLetters } = useRandomLetters();
   const { isNavbarOpaque } = useNavbarOpacity();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
