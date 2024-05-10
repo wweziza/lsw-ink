@@ -1,26 +1,31 @@
-
-import { useIntersectionObserver } from '../functions/useIntersectionObserver';
 import React, { useRef, useEffect, useState } from 'react';
 import styles from '../page.module.css';
 
 const SecondPage = () => {
   const secondPageRef = useRef(null);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const [, isSecondPageIntersecting] = useIntersectionObserver({
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1,
-    target: secondPageRef,
-  });
+  const [isSecondPageIntersecting, setIsSecondPageIntersecting] = useState(false);
 
   useEffect(() => {
-    if (isSecondPageIntersecting) {
-      setIsFirstLoad(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSecondPageIntersecting(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (secondPageRef.current) {
+      observer.observe(secondPageRef.current);
     }
-  }, [isSecondPageIntersecting]);
+
+    return () => {
+      if (secondPageRef.current) {
+        observer.unobserve(secondPageRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div ref={secondPageRef} className={`${styles.newPageContent} ${isFirstLoad ? styles.hidden : ''}`}>
+    <div ref={secondPageRef} className={`${styles.newPageContent} ${isSecondPageIntersecting ? '' : styles.hidden}`}>
       <h2>Explore Our Latest Collection</h2>
       <p>
         Indulge in our newest line of clothing, where style meets comfort. From casual weekend wear to sleek office
