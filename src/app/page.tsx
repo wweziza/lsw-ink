@@ -1,14 +1,10 @@
-/* rewrite the observer / delete it*/
-
 'use client';
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-
 import { useTheme } from './functions/useTheme';
 import { useRandomLetters } from './functions/useRandomLetters';
 import { useNavbarOpacity } from './functions/useNavbarOpacity';
-import { useIntersectionObserver } from './functions/useIntersectionObserver';
 
 const SecondPage = lazy(() => import('./contents/secondPage'));
 
@@ -16,35 +12,47 @@ const Home = () => {
   const { isDarkMode, toggleTheme } = useTheme();
   const { randomLetters } = useRandomLetters();
   const { isNavbarOpaque } = useNavbarOpacity();
-  const [newPageSectionRef, isNewPageSectionIntersecting] = useIntersectionObserver({
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1,
-  });
-  const [isScreenWidthSmall, setIsScreenWidthSmall] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsScreenWidthSmall(window.innerWidth < 768);
-    };
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
       <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
-        <ul className={styles.navLinks}>
-          <li>
-            <button onClick={toggleTheme} className={styles.transparentButton}>
-              LSW {randomLetters}
+        <div className={styles.navbarInner}>
+          <ul className={styles.navLinks}>
+            <li>
+              <button onClick={toggleTheme} className={styles.transparentButton}>
+                LSW {randomLetters}
+              </button>
+            </li>
+          </ul>
+          <div className={styles.sidebarToggle} onClick={toggleSidebar}>
+            <span>{isSidebarOpen ? '✕' : '☰'}</span>
+          </div>
+        </div>
+        <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
+          <div className={styles.sidebarHeader}>
+            <button className={styles.sidebarCloseButton} onClick={closeSidebar}>
+              ✕
             </button>
-          </li>
-        </ul>
+          </div>
+          <Link href="/" className={styles.sidebarLink}>
+            Home
+          </Link>
+          <Link href="/collections" className={styles.sidebarLink}>
+            Collections
+          </Link>
+          <Link href="/login" className={styles.sidebarLink}>
+            Login
+          </Link>
+        </div>
       </nav>
       <main className={styles.main}>
         <div className={styles.textContainer}>
@@ -53,7 +61,6 @@ const Home = () => {
             you think it's lorem ipsum? pee-poop bro, the string telling you to discover timeless fashion that empowers
             your confidence.
           </p>
-          {/* Use Link for button */}
           <a href="https://instagram.com/lsw.ink" className={styles.shopBtn}>
             Touch Us
           </a>
@@ -62,17 +69,9 @@ const Home = () => {
           <img src={isDarkMode ? 'image/display.webp' : 'image/displayWhite.webp'} alt="Clothing" />
         </div>
       </main>
-      <Suspense fallback={<div>Loading...</div>}>
-        <div
-          ref={newPageSectionRef}
-          className={`${styles.newPageSection} ${
-            isNewPageSectionIntersecting || !isScreenWidthSmall ? '' : styles.secondPageHidden
-          }`}
-        >
-          <SecondPage />
-        </div>
-      </Suspense>
-
+      <div className={`${styles.newPageSection}`}>
+        <SecondPage />
+      </div>
       <footer className={styles.footer}>
         <div className={styles.footerDisclaimer}>
           <p>&copy; 2024 LSW. All rights reserved.</p>
@@ -84,7 +83,3 @@ const Home = () => {
 };
 
 export default Home;
-/*
-            <div className={styles.semiFooter}>
-        <p>Embrace the essence of timeless style with LSW.</p>
-      </div>*/
