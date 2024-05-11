@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
-import styles from '../page.module.css';
+import styles from '../../app/page.module.css';
 
 const SecondPage = () => {
 
   return (
     <div
-      className={`${styles.newPageContent}`}
+      className={`${styles.newPageContent}` } id="secondPage"
     >
       <h2>Explore Our Latest Collection</h2>
       <p>

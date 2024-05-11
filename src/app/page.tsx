@@ -1,13 +1,13 @@
 'use client';
 import React, { lazy, Suspense, useState } from 'react';
 import styles from './page.module.css';
-import { useTheme } from './components/functions/useTheme';
+import { useTheme } from '../components/functions/useTheme';
 
 
-import Footer from './components/layouts/footer';
-import Navbar from './components/layouts/navbar';
+import Footer from '../components/layouts/footer';
+import Navbar from '../components/layouts/navbar';
 
-const SecondPage = lazy(() => import('./contents/secondPage'));
+const SecondPage = lazy(() => import('../components/layouts/secondPage'));
 
 const Home = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
         <Navbar
-        toggleTheme={toggleTheme} // Make sure toggleTheme is passed as a prop
+        isDarkMode={isDarkMode} toggleTheme={toggleTheme} // Make sure toggleTheme is passed as a prop
       />
       <main className={styles.main}>
         <div className={styles.textContainer}>

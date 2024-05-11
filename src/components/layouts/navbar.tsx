@@ -1,20 +1,21 @@
-import React, { useState, useEffect, useRef, MouseEvent } from 'react'; // Import MouseEvent
+// components/layouts/Navbar.tsx
+import React, { useState, useEffect, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
-import styles from '../../page.module.css';
+import styles from '../../app/page.module.css';
 import { useTheme } from '../functions/useTheme';
 import { useRandomLetters } from '../functions/useRandomLetters';
 import { useNavbarOpacity } from '../functions/useNavbarOpacity';
+
 interface NavbarProps {
-    toggleTheme: () => void; // Define the type of toggleTheme
-    // Add other props here if needed
-  }
-  
-  const Navbar: React.FC<NavbarProps> = ({ toggleTheme }) => {
-  const { isDarkMode } = useTheme();
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
   const { randomLetters } = useRandomLetters();
   const { isNavbarOpaque } = useNavbarOpacity();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const sidebarRef = useRef<HTMLDivElement>(null); // Add type annotation
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -30,17 +31,23 @@ interface NavbarProps {
         closeSidebar();
       }
     };
-  
-    document.addEventListener('mousedown', handleClickOutside as any); // Add 'as any' to address TypeScript error
-  
+
+    document.addEventListener('mousedown', handleClickOutside as any);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside as any); // Add 'as any' to address TypeScript error
+      document.removeEventListener('mousedown', handleClickOutside as any);
     };
   }, []);
-  
+
+  const handleScrollToSecondPage = () => {
+    const secondPageElement = document.getElementById("secondPage");
+    if (secondPageElement) {
+      secondPageElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''}`}>
+    <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''} ${isDarkMode ? styles.dark : styles.light}`}>
       <div className={styles.navbarInner}>
         <ul className={styles.navLinks}>
           <li>
@@ -62,9 +69,9 @@ interface NavbarProps {
         <Link href="/" className={styles.sidebarLink}>
           Home
         </Link>
-        <Link href="/collections" className={styles.sidebarLink}>
+        <a className={styles.sidebarLink} onClick={handleScrollToSecondPage}>
           Collections
-        </Link>
+        </a>
         <Link href="/login" className={styles.sidebarLink}>
           Login
         </Link>
