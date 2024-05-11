@@ -87,3 +87,21 @@
 .dark .loginButton:hover {
   background-color: #003a7a;
 }
+
+@media only screen and (max-width: 768px) {
+  .loginContainer {
+    padding: 10px;
+  }
+
+  .loginContent {
+    padding: 20px;
+  }
+
+  .inputGroup input {
+    font-size: 14px;
+  }
+
+  .loginButton {
+    font-size: 14px;
+  }
+}
