@@ -1,8 +1,7 @@
 // components/Auth.tsx
 'use client';
 import React, { useState, createContext, useEffect } from 'react';
-import ErrorMessage from './errorMessage';
-
+import NotificationMessage from './notificationMessage';
 interface AuthContextType {
   isAuthenticated: boolean;
   login: (username: string, password: string) => void;
@@ -20,20 +19,20 @@ export const AuthContext = createContext<AuthContextType>({
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [showError, setShowError] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState('');
+  const [notificationType, setNotificationType] = useState<'notification' | 'error'>('notification');
+  const [isNotificationShow, setShowNotification] = useState(false);
+
 
   const login = (username: string, password: string) => {
     // Simple authentication check
     if (password === 'admin') {
       setIsAuthenticated(true);
       setUsername(username);
-      setErrorMessage('');
-      setShowError(false);
+      showNotification('Logged in successfully!', 'notification');
     } else {
       // Show error message
-      setErrorMessage('Invalid username or password');
-      setShowError(true);
+      showNotification('Invalid username or password', 'error');
       console.error('Invalid username or password');
     }
   };
@@ -41,18 +40,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     setIsAuthenticated(false);
     setUsername('');
+    showNotification('Logged out successfully!', 'notification');
   };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowError(false);
-    }, 3000); // Hide the error message after 3 seconds
 
-    return () => clearTimeout(timer);
-  }, [showError]);
+  const showNotification = (message: string, type: 'notification' | 'error') => {
+    setNotificationMessage(message);
+    setNotificationType(type);
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
+  };
+
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout, username }}>
       {children}
-      {showError && <ErrorMessage message={errorMessage} />}
+      {isNotificationShow && (
+        <NotificationMessage message={notificationMessage} type={notificationType} />
+      )}
     </AuthContext.Provider>
   );
 };

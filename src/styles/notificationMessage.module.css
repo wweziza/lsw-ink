@@ -1,10 +1,8 @@
-/* styles/ErrorMessage.module.css */
-.errorMessage {
+/* styles/NotificationMessage.module.css */
+.notificationMessage {
     position: fixed;
     bottom: 1.5rem;
     left: 1.5rem;
-    background-color: #e53e3e;
-    color: #fff;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -15,14 +13,24 @@
     animation: fadeIn 0.3s ease-in-out;
   }
   
-  .errorMessageContent {
+  .notificationMessageContent {
     display: flex;
     align-items: center;
   }
   
-  .errorMessageContent p {
+  .notificationMessageContent p {
     margin: 0;
     font-weight: 500;
+  }
+  
+  .notificationColor {
+    background-color: #48bb78;
+    color: #fff;
+  }
+  
+  .errorColor {
+    background-color: #e53e3e;
+    color: #fff;
   }
   
   @keyframes fadeIn {
@@ -37,7 +45,12 @@
   }
   
   /* Dark mode styles */
-  .dark .errorMessage {
+  .dark .notificationMessage {
+    background-color: #48bb78;
+    color: #fff;
+  }
+  
+  .dark .errorColor {
     background-color: #e53e3e;
     color: #fff;
   }

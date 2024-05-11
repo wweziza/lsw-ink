@@ -1,7 +1,7 @@
 // components/layouts/Dashboard.tsx
 'use client';
 import React, { useContext } from 'react';
-import Navbar from '../../components/layouts/navbar';
+import Navbar from '../../components/layouts/dashboard.navbar';
 import styles from '../../app/dashboard/Dashboard.module.css';
 import { useThemeStorage } from '../../components/functions/useThemeStorage';
 import { AuthContext } from './Auth';
@@ -30,12 +30,6 @@ const Dashboard = () => {
               <p>This is a second panel for displaying additional information or statistics.</p>
             </div>
           </div>
-        </div>
-        <div className={styles.sidebar}>
-          <ul>
-            <li>Dashboard</li>
-            <li onClick={() => { /* Handle logout functionality */ }}>Logout</li>
-          </ul>
         </div>
       </div>
     </div>
