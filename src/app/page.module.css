@@ -14,6 +14,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
+  color: #f0f0f0;
   transition: background-color 0.3s ease;
 }
 

@@ -16,7 +16,10 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
   const { isNavbarOpaque } = useNavbarOpacity();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-
+  const body = document.querySelector('body');
+  if (body) {
+    body.style.backgroundColor = isDarkMode ? '#121212' : '#f0f0f0';
+  }
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
