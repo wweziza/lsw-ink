@@ -5,13 +5,15 @@
     min-height: 100vh;
     background-color: #fff;
   }
+  
   .welcomeMessage {
     color: #121212;
   }
-  .dark .welcomeMessage
-  {
+  
+  .dark .welcomeMessage {
     color: #fff;
   }
+  
   .navbar {
     position: fixed;
     top: 0;
@@ -52,9 +54,17 @@
     .dashboardContentWrapper {
       padding: 1rem;
     }
+  
+    .panelContainer {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .panel {
+      flex-basis: auto;
+    }
   }
   
-
   .panelContainer {
     display: flex;
     gap: 2rem;
@@ -89,15 +99,19 @@
     color: #555555;
     margin-bottom: 0.5rem;
   }
-  .dark .panel h3{
+  
+  .dark .panel h3 {
     color: #fff;
   }
-  .dark .panel p{
+  
+  .dark .panel p {
     color: #fff;
   }
+  
   .playerLoggedPanel {
     border-left: 4px solid #58595a;
   }
+  
   .dark {
     background-color: #121212;
     color: #fff;
@@ -109,9 +123,8 @@
   
   .dark .panel {
     background-color: #1e1e1e;
-    
   }
   
   .dark .sidebar {
     background-color: #1e1e1e;
-  }
+  } 
