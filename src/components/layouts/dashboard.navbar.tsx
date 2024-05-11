@@ -30,6 +30,19 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
     setIsSidebarOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+        closeSidebar();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside as any);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside as any);
+    };
+  }, []);
 
   return (
     <nav className={`${styles.navbar} ${isNavbarOpaque ? styles.opaque : ''} ${isDarkMode ? styles.dark : styles.light}`}>
@@ -55,13 +68,13 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
           Dashboard
         </Link>
         <Link href="/dashboard" className={styles.sidebarLink}>
-          Character
+          Stock Listing
+        </Link>
+        <Link href="/settings" className={styles.sidebarLink}>
+          Order
         </Link>
         <Link href="/settings" className={styles.sidebarLink}>
           Settings
-        </Link>
-        <Link href="/settings" className={styles.sidebarLink}>
-          Join the Beta
         </Link>
         <Link href="#" onClick={logout} className={styles.sidebarLink}>
       Logout
