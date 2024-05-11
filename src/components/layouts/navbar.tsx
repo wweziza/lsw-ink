@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import styles from '../../app/page.module.css';
-import { useTheme } from '../functions/useTheme';
+import { useThemeStorage } from '../functions/useThemeStorage';
 import { useRandomLetters } from '../functions/useRandomLetters';
 import { useNavbarOpacity } from '../functions/useNavbarOpacity';
 
