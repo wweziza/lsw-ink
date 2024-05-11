@@ -1,0 +1,43 @@
+/* styles/ErrorMessage.module.css */
+.errorMessage {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background-color: #e53e3e;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    max-width: 400px;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .errorMessageContent {
+    display: flex;
+    align-items: center;
+  }
+  
+  .errorMessageContent p {
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Dark mode styles */
+  .dark .errorMessage {
+    background-color: #e53e3e;
+    color: #fff;
+  }

@@ -1,0 +1,104 @@
+/* styles/Dashboard.module.css */
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .dashboardHeader {
+    padding: 1rem 2rem;
+    margin-top: 4rem; /* Adjust this value to create space between the navbar and header */
+    background-color: inherit;
+    z-index: 100;
+  }
+  
+  .welcomeMessage {
+    margin-bottom: 0;
+  }
+  
+  .dashboardContentWrapper {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    margin-top: 2rem; /* Add some spacing between the header and content */
+  }
+  
+  .dashboardContent {
+    max-width: 800px;
+    margin: 0 auto;
+    flex-grow: 1;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .dashboardHeader {
+      margin-top: 3.5rem; /* Adjust this value for mobile devices */
+    }
+  
+    .dashboardContentWrapper {
+      padding: 1rem;
+    }
+  }
+  
+
+  .panelContainer {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .panel {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+  }
+  
+  .panel h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 1rem;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    padding: 0.5rem 0;
+    cursor: pointer;
+  }
+  
+  .dark {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark .dashboardHeader {
+    background-color: #1e1e1e;
+  }
+  
+  .dark .panel {
+    background-color: #1e1e1e;
+  }
+  
+  .dark .sidebar {
+    background-color: #1e1e1e;
+  }
