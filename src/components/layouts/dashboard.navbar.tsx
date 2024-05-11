@@ -54,6 +54,9 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
         <Link href="/dashboard" className={styles.sidebarLink}>
           Dashboard
         </Link>
+        <Link href="/dashboard" className={styles.sidebarLink}>
+          Character
+        </Link>
         <Link href="/settings" className={styles.sidebarLink}>
           Settings
         </Link>

@@ -22,12 +22,18 @@ const Dashboard = () => {
         <div className={styles.dashboardContent}>
           <div className={styles.panelContainer}>
             <div className={`${styles.panel} ${styles.playerLoggedPanel}`}>
-              <h3>Player Logged</h3>
-              <p>123</p>
+              <h3>Wan Cheng</h3>
+              <p>Money : $31.229,00</p>
+              <p>Level : 14</p>
+              <p>Faction : None</p>
             </div>
             <div className={`${styles.panel} ${styles.secondPanel}`}>
-              <h3>Second Panel</h3>
-              <p>This is a second panel for displaying additional information or statistics.</p>
+              <h3>New Character</h3>
+              <p>Click me, to make a new character</p>
+            </div>
+            <div className={`${styles.panel} ${styles.secondPanel}`}>
+              <h3>New Character</h3>
+              <p>Click me, to make a new character</p>
             </div>
           </div>
         </div>
