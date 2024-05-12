@@ -2,17 +2,16 @@
 Clothing Brand website with stock, credentials, management, etc. Built with Next.js, Mongodb, Express. https://lsw.ink
 
 ## Features
-
-- Management
+1. Management
 You can control the stock, order list, chart just from panel.
 
-- Landing Page
+2. Landing Page
 It can be a landing page, either be e-commerce for your brand clothing
 
-- Light, stable, easy-to-read code.
+4. Light, stable, easy-to-read code.
 You can easily understand the code and change the assets, theme, or whatever you want PS. Currently we have 2 theme mode (light and dark)
 
-- Integrated with payment gateway (WIP)
+6. Integrated with payment gateway (WIP)
 Automatic payment integrated with [`Midtrans`](https://github.com/Midtrans/midtrans-nodejs-client), i've doing similar project but for `Discord.Js` bot named Jiro
 
 
