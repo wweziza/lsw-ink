@@ -1,46 +1,59 @@
 // components/Auth.tsx
 'use client';
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import NotificationMessage from './notificationMessage';
+
 interface AuthContextType {
   isAuthenticated: boolean;
-  login: (username: string, password: string) => void;
+  login: (username: string, password: string) => Promise<void>;
   logout: () => void;
   username: string;
+  token: string;
 }
 
 export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  login: () => {},
+  login: async () => {},
   logout: () => {},
   username: '',
+  token: '',
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
+  const [token, setToken] = useState('');
   const [notificationMessage, setNotificationMessage] = useState('');
   const [notificationType, setNotificationType] = useState<'notification' | 'error'>('notification');
   const [isNotificationShow, setShowNotification] = useState(false);
+  const router = useRouter();
 
-
-  const login = (username: string, password: string) => {
-    // Simple authentication check
-    if (password === 'admin') {
-      setIsAuthenticated(true);
+  const login = async (username: string, password: string) => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/login', { email: username, password });
+      const token = response.data.token;
+      // Save token to localStorage
+      localStorage.setItem('token', token);
+      // Set token and username in context
+      setToken(token);
       setUsername(username);
+      setIsAuthenticated(true);
       showNotification('Logged in successfully!', 'notification');
-    } else {
-      // Show error message
+      router.push('/dashboard');
+    } catch (error) {
       showNotification('Invalid username or password', 'error');
       console.error('Invalid username or password');
     }
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
+    localStorage.removeItem('token');
     setUsername('');
+    setIsAuthenticated(false);
     showNotification('Logged out successfully!', 'notification');
+    router.push('/login');
   };
 
   const showNotification = (message: string, type: 'notification' | 'error') => {
@@ -53,7 +66,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, username }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, username, token }}>
       {children}
       {isNotificationShow && (
         <NotificationMessage message={notificationMessage} type={notificationType} />
