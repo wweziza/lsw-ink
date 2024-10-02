@@ -1,5 +1,5 @@
 ## LSW.ink
-Brand website with stock, credentials, management, etc. Built in Next.js, Mongodb, Express. https://lsw.ink
+Brand website with stock, credentials, management, etc. Built in Next.js, Mongodb, Express.
 
 ## Features
 - Management - You can control the stock, order list, chart just from panel.
