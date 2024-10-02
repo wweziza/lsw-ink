@@ -1,5 +1,5 @@
 {
-    "mongodb_uri": "mongodb+srv://weziza:Lokontol123@lswink.xujwryg.mongodb.net/?retryWrites=true&w=majority&appName=lswink",
-    "password": "memekluanjing",
+    "mongodb_uri": "mongoDBURI",
+    "password": "example",
     "jwtSecret": "thisissecretyouknowsorry"
 }
